@@ -25,11 +25,11 @@ public class Arquivo<T> {
     }
     
     private void printaNomeAtributos() {
-    	String listaNomes;
+    	String listaNomes = "|  ";
     	Class<?> classeObjeto = objeto.getClass();
     	Field[] listaFields = classeObjeto.getDeclaredFields();
     	for(Field field : listaFields) {
-    		listaNomes.concat("|  ").concat(field.getName().concat("  |"));
+    		listaNomes.concat(field.getName().concat("  |"));
     	}
     	System.out.println(listaNomes);
     }
@@ -40,6 +40,19 @@ public class Arquivo<T> {
     	bw.flush();
     	bw.newLine();
     	bw.close();
+    }
+    
+    public void visualizarTodosRegistros() throws IOException {
+    	BufferedReader br = new BufferedReader(new FileReader(getNomeArquivo()));
+    	
+    	String registro;
+    	
+    	printaNomeAtributos();
+    	while((registro = br.readLine()) != null) {
+    		System.out.println(registro);
+    	}
+    	
+    	br.close();
     }
     
     public void deletar() throws IOException {
@@ -88,12 +101,71 @@ public class Arquivo<T> {
     		StringTokenizer st = new StringTokenizer(registro, ",");
     		if(registro.contains(ID)) {
     	    	for(Field field : listaFields) {
-    	    		listaAtributos.concat(st.nextToken());
+    	    		listaAtributos.concat(st.nextToken().concat(", "));
     	    	}
-    	    	System.out.println(listaAtributos);			
+    	    	listaAtributos = listaAtributos.substring(0, listaAtributos.lastIndexOf(",")); //removendo "," do final da string
+    	    	System.out.println(listaAtributos);	
     		}
     	}
-    	
     	br.close();
+    }
+    
+    public void atualizar() throws IOException {
+    	String ID, registro1, registro2;
+    	
+    	String atributosAntigos, atributosNovos;
+    	Class<?> classeObjeto = objeto.getClass();
+    	Field[] listaFields = classeObjeto.getDeclaredFields();
+    	
+    	File db = new File(getNomeArquivo());
+    	File tempDB = new File("temp_".concat(getNomeArquivo()));
+    	
+    	BufferedReader br = new BufferedReader(new FileReader(db));
+    	BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
+    	
+    	Scanner strInput = new Scanner(System.in);
+    	
+    	System.out.println("\nDigite o ID a ser alterado: ");
+    	ID = strInput.nextLine();
+    	
+    	System.out.println("\nO conteúdo do registro ser alterado: ");
+    	printaNomeAtributos();
+    	while((registro1 = br.readLine()) != null) {
+    		StringTokenizer st = new StringTokenizer(registro1, ",");
+    		if(registro1.contains(ID)) {
+    	    	for(Field field : listaFields) {
+    	    		atributosAntigos.concat(st.nextToken());
+    	    	}
+    	    	atributosAntigos = atributosAntigos.substring(0, atributosAntigos.lastIndexOf(","));
+    	    	System.out.println(atributosAntigos);
+    		}
+    	}
+    	br.close();
+    	
+    	for(Field field : listaFields) {
+    		String novoDado;
+    		System.out.println("Digite o novo dado para ".concat(field.getName()));
+    		novoDado = strInput.nextLine();
+    		atributosNovos.concat(novoDado).concat(",");
+    	}
+    	atributosNovos = atributosNovos.substring(0, atributosNovos.lastIndexOf(","));   	
+    	
+    	BufferedReader br2 = new BufferedReader(new FileReader(db));
+    	
+    	while((registro2 = br2.readLine()) != null) {
+    		if(registro2.contains(ID)) {
+    			bw.write(atributosNovos);
+    		}
+    		else {
+    			bw.write(registro2);
+    		}
+    		bw.flush();
+    		bw.newLine();
+    	}
+    	
+    	bw.close();
+    	br2.close();
+    	db.delete();
+    	tempDB.renameTo(db);    	
     }
 }
