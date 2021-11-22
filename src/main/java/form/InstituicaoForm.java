@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class InstituiçãoForm {
+public class InstituicaoForm {
     public static Instituicao incluir() {
         Scanner entrada = new Scanner(System.in);
         Instituicao instituicao = new Instituicao();
@@ -36,22 +36,22 @@ public class InstituiçãoForm {
         System.out.println("Informe o Data de Fundação do Instituto: ");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataFundacao = LocalDate.parse(entrada.nextLine(), formatter);
-        instituicao.getPessoaFisica().setDataFundacao(dataFundacao);
+        instituicao.getPessoaJuridica().setDataFundacao(dataFundacao);
         
         System.out.println("Informe o Endereço da Instituição: ");
         instituicao.getPessoaJuridica().setEndereco(entrada.nextLine());
         
-        System.out.println("Informe o telefone da Instituição: ");
-        instituicao.setTelefone(entrada.nextLine());
+        System.out.println("Informe o código do MEC da Instituição: ");
+        instituicao.setCodigoMec(entrada.nextLine());
         
         System.out.println("Informe o E-mail da Instituição: ");
         instituicao.getPessoaJuridica().setEmail(entrada.nextLine());
         
         System.out.println("Informe a sigla da Instituição: ");
-        instituicao.getPessoaJuridica().setSigla(entrada.nextLine());
-        
+        instituicao.setSigla(entrada.nextLine());
+
         System.out.println("Informe o código MEC da Instituição: ");
-        instituicao.getPessoaJuridica().setCodigoMec(entrada.nextLine());
+        instituicao.setCodigoMec(entrada.nextLine());
         
         return instituicao;
     }
