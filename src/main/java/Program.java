@@ -1,26 +1,31 @@
+import menu.AlunoMenu;
+
 import java.util.Scanner;
 
 public class Program {
 
     public static void main(String[] args) {
-        Scanner strInput = new Scanner(System.in);
-        String choice, cont = "s";
+        Scanner entrada = new Scanner(System.in);
+        String escolha, cont = "s";
 
-        while (cont.equalsIgnoreCase("y")) {
-            System.out.println("\t\t Employee Information System\n\n");
+        while (cont.equalsIgnoreCase("s")) {
+            System.out.println("\t\t Sistema de gestão academica \n\n");
 
-            System.out.println("1 ===> Adicionar novo aluno ");
-            System.out.println("2 ===> Ver todos alunos ");
-            System.out.println("3 ===> Remover aluno ");
-            System.out.println("4 ===> Buscar aluno ");
-            System.out.println("5 ===> Atualizar aluno ");
+            System.out.println("1 ===> Aluno ");
+            System.out.println("2 ===> Professor ");
+            System.out.println("3 ===> Diciplina ");
+            System.out.println("4 ===> Instituição ");
+            System.out.println("5 ===> Curso ");
+            System.out.println("6 ===> Fornecedor ");
+            System.out.println("7 ===> Compas ");
 
             System.out.print("\n\n");
             System.out.println("Escolha uma opção: ");
-            choice = strInput.nextLine();
-            switch (choice) {
+            escolha = entrada.nextLine();
+
+            switch (escolha) {
                 case "1":
-                    System.out.println("Escolheu 1");
+                    AlunoMenu.mostrarMenu();
                     break;
                 case "2":
                     System.out.println("Escolheu 2");
@@ -36,7 +41,7 @@ public class Program {
                     break;
                 default:
                     System.out.println("Você deseja continuar? S/n");
-                    cont = strInput.nextLine();
+                    cont = entrada.nextLine();
                     break;
             }
         }

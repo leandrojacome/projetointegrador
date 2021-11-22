@@ -87,7 +87,7 @@ public class Arquivo<T> {
     	Scanner strInput = new Scanner(System.in);
     	String ID, registro;
     	
-    	String listaAtributos;
+    	String listaAtributos = null;
     	Class<?> classeObjeto = objeto.getClass();
     	Field[] listaFields = classeObjeto.getDeclaredFields();
     	
@@ -113,7 +113,7 @@ public class Arquivo<T> {
     public void atualizar() throws IOException {
     	String ID, registro1, registro2;
     	
-    	String atributosAntigos, atributosNovos;
+    	String atributosAntigos = "", atributosNovos = "";
     	Class<?> classeObjeto = objeto.getClass();
     	Field[] listaFields = classeObjeto.getDeclaredFields();
     	

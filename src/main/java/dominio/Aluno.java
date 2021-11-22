@@ -6,7 +6,7 @@ public class Aluno {
 
     private Integer id;
     private String matricula;
-    private PessoaFisica pessoaFisica;
+    private PessoaFisica pessoaFisica = new PessoaFisica();
 
     public Integer getId() {
         return id;
