@@ -19,11 +19,11 @@ public class AlunoForm {
         aluno.getPessoaFisica().setNome(entrada.nextLine());
         System.out.println("Informe o CPF do aluno: ");
         aluno.getPessoaFisica().setCpf(entrada.nextLine());
-        System.out.println("Informe o Data de Nascimento do aluno: ");
+        System.out.println("Informe a Data de Nascimento do aluno: ");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataNacimento = LocalDate.parse(entrada.nextLine(), formatter);
         aluno.getPessoaFisica().setDataNascimento(dataNacimento);
-        System.out.println("Informe o Matricula do aluno: ");
+        System.out.println("Informe a Matricula do aluno: ");
         aluno.setMatricula(entrada.nextLine());
         System.out.println("Informe o Telefone do aluno: ");
         aluno.getPessoaFisica().setTelefone(entrada.nextLine());
@@ -33,7 +33,6 @@ public class AlunoForm {
         aluno.getPessoaFisica().setEmail(entrada.nextLine());
         System.out.println("Informe o Endereço do aluno: ");
         aluno.getPessoaFisica().setEndereco(entrada.nextLine());
-        System.out.println("Informe o Endereço do aluno: ");
         return aluno;
     }
 }
