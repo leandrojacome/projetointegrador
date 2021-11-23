@@ -57,9 +57,9 @@ public class Instituicao {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(sigla).append(",");
-        sb.append(codigoMec).append(",");
+        sb.append(id).append(";");
+        sb.append(sigla).append(";");
+        sb.append(codigoMec).append(";");
         sb.append(pessoaJuridica.getId());
         return sb.toString();
     }

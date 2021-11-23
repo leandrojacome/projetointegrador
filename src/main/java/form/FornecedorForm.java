@@ -36,20 +36,17 @@ public class FornecedorForm {
         System.out.println("Informe o Data de Fundação do fornecedor: ");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataFundacao = LocalDate.parse(entrada.nextLine(), formatter);
-        fornecedor.getPessoaFisica().setDataFundacao(dataFundacao);
+        fornecedor.getPessoaJuridica().setDataFundacao(dataFundacao);
         
         System.out.println("Informe o Endereço do fornecedor: ");
         fornecedor.getPessoaJuridica().setEndereco(entrada.nextLine());
-        
-        System.out.println("Informe o telefone do fornecedor: ");
-        fornecedor.setTelefone(entrada.nextLine());
         
         System.out.println("Informe o E-mail do fornecedor: ");
         fornecedor.getPessoaJuridica().setEmail(entrada.nextLine());
         
         System.out.println("Informe o estado de Atividade do fornecedor (Ativo/Inativo): ");
         Boolean bAtividade = entrada.nextLine().equals("Ativo") ? true : false;
-        fornecedor.getPessoaJuridica().setAtivo(bAtividade);
+        fornecedor.setAtivo(bAtividade);
         
         return fornecedor;
     }

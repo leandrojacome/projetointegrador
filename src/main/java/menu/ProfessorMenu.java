@@ -8,7 +8,7 @@ import infra.Arquivo;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Menu {
+public class ProfessorMenu {
 
     public static void mostrarMenu() {
         Scanner entrada = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class Menu {
                 case "2":
                     Professor professor = ProfessorForm.incluir();
                     Arquivo<PessoaFisica> pessoaFisicaArquivo = new Arquivo<>(professor.getPessoaFisica());
-                    Arquivo<Professor> alunoArquivo = new Arquivo<>(professor);
+                    Arquivo<Professor> professorArquivo = new Arquivo<>(professor);
                     try {
                         pessoaFisicaArquivo.salvar();
                         professorArquivo.salvar();

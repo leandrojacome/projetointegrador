@@ -6,6 +6,7 @@ import form.AlunoForm;
 import infra.Arquivo;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class AlunoMenu {
@@ -27,6 +28,18 @@ public class AlunoMenu {
             escolha = entrada.nextLine();
 
             switch (escolha) {
+                case "1":
+                    Aluno alunoListar = new Aluno();
+                    Arquivo<Aluno> alunoArquivoListar = new Arquivo<>(alunoListar);
+                    try {
+                        List<String> alunos = alunoArquivoListar.listarTodos();
+                        for (String aluno : alunos) {
+                            System.out.println(aluno);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
                 case "2":
                     Aluno aluno = AlunoForm.incluir();
                     Arquivo<PessoaFisica> pessoaFisicaArquivo = new Arquivo<>(aluno.getPessoaFisica());
@@ -38,7 +51,36 @@ public class AlunoMenu {
                         e.printStackTrace();
                     }
                     break;
+                case "3":
+                    Aluno alunoVisualizar = new Aluno();
+                    Arquivo<Aluno> alunoArquivoVisualizar = new Arquivo<>(alunoVisualizar);
+                    try {
+                        alunoArquivoVisualizar.vizualizar();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "4":
+                    Aluno alunoAlterar = new Aluno();
+                    Arquivo<Aluno> alunoArquivoAlterar = new Arquivo<>(alunoAlterar);
+                    try {
+                        alunoArquivoAlterar.atualizar();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "5":
+                    Aluno alunoDeletar = new Aluno();
+                    Arquivo<Aluno> alunoArquivoDeletar = new Arquivo<>(alunoDeletar);
+                    try {
+                        alunoArquivoDeletar.deletar();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
             }
+
+            System.out.println("Deseja continuar? S/n");
+            cont = entrada.nextLine();
         }
 
     }

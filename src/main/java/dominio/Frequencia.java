@@ -66,10 +66,10 @@ public class Frequencia {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(data).append(",");
-        sb.append(presente).append(",");
-        sb.append(aluno.getId()).append(",");
+        sb.append(id).append(";");
+        sb.append(data).append(";");
+        sb.append(presente).append(";");
+        sb.append(aluno.getId()).append(";");
         sb.append(disciplina.getId());
         return sb.toString();
     }

@@ -1,6 +1,7 @@
 package dominio;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Prova {
 
@@ -42,11 +43,24 @@ public class Prova {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Prova prova = (Prova) o;
+        return Objects.equals(id, prova.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(dataHora).append(",");
-        sb.append(disciplina.getId()).append(",");
+        sb.append(id).append(";");
+        sb.append(dataHora).append(";");
+        sb.append(disciplina.getId()).append(";");
         sb.append(aluno.getId());
         return sb.toString();
     }

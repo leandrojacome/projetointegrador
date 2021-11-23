@@ -112,15 +112,15 @@ public class PessoaJuridica {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(razaoSocial).append(",");
-        sb.append(nomeFantasia).append(",");
-        sb.append(cnpj).append(",");
-        sb.append(inscricaoEstadual).append(",");
-        sb.append(inscricaoMunicipal).append(",");
-        sb.append(dataFundacao).append(",");
-        sb.append(endereco).append(",");
-        sb.append(telefone).append(",");
+        sb.append(id).append(";");
+        sb.append(razaoSocial).append(";");
+        sb.append(nomeFantasia).append(";");
+        sb.append(cnpj).append(";");
+        sb.append(inscricaoEstadual).append(";");
+        sb.append(inscricaoMunicipal).append(";");
+        sb.append(dataFundacao).append(";");
+        sb.append(endereco).append(";");
+        sb.append(telefone).append(";");
         sb.append(email);
         return sb.toString();
     }

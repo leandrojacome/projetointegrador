@@ -48,8 +48,8 @@ public class Fornecedor {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(ativo).append(",");
+        sb.append(id).append(";");
+        sb.append(ativo).append(";");
         sb.append(pessoaJuridica.getId());
         return sb.toString();
     }

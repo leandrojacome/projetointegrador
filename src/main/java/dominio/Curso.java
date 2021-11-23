@@ -66,10 +66,10 @@ public class Curso {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(nome).append(",");
-        sb.append(cargaHoraria).append(",");
-        sb.append(duracao).append(",");
+        sb.append(id).append(";");
+        sb.append(nome).append(";");
+        sb.append(cargaHoraria).append(";");
+        sb.append(duracao).append(";");
         sb.append(instituicao.getId());
         return sb.toString();
     }

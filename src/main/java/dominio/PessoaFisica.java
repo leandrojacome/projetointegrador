@@ -103,14 +103,14 @@ public class PessoaFisica {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(nome).append(",");
-        sb.append(cpf).append(",");
-        sb.append(rg).append(",");
-        sb.append(dataNascimento).append(",");
-        sb.append(endereco).append(",");
-        sb.append(telefone).append(",");
-        sb.append(celular).append(",");
+        sb.append(id).append(";");
+        sb.append(nome).append(";");
+        sb.append(cpf).append(";");
+        sb.append(rg).append(";");
+        sb.append(dataNascimento).append(";");
+        sb.append(endereco).append(";");
+        sb.append(telefone).append(";");
+        sb.append(celular).append(";");
         sb.append(email);
         return sb.toString();
     }

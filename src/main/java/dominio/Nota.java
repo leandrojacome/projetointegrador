@@ -42,9 +42,9 @@ public class Nota {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(nota).append(",");
-        sb.append(disciplina.getId()).append(",");
+        sb.append(id).append(";");
+        sb.append(nota).append(";");
+        sb.append(disciplina.getId()).append(";");
         sb.append(aluno.getId());
         return sb.toString();
     }

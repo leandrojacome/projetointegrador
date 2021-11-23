@@ -8,7 +8,7 @@ import infra.Arquivo;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Menu {
+public class InstituicaoMenu {
 
     public static void mostrarMenu() {
         Scanner entrada = new Scanner(System.in);

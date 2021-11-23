@@ -75,11 +75,11 @@ public class Compras {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(nomeProduto).append(",");
-        sb.append(valorUnitario).append(",");
-        sb.append(quantidade).append(",");
-        sb.append(fornecedor.getId()).append(",");
+        sb.append(id).append(";");
+        sb.append(nomeProduto).append(";");
+        sb.append(valorUnitario).append(";");
+        sb.append(quantidade).append(";");
+        sb.append(fornecedor.getId()).append(";");
         sb.append(instituicao.getId());
         return sb.toString();
     }

@@ -57,9 +57,9 @@ public class Disciplina {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append(id).append(",");
-        sb.append(nome).append(",");
-        sb.append(curso.getId()).append(",");
+        sb.append(id).append(";");
+        sb.append(nome).append(";");
+        sb.append(curso.getId()).append(";");
         sb.append(professor.getId());
         return sb.toString();
     }
