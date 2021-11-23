@@ -29,7 +29,7 @@ public class Menu {
             switch (escolha) {
                 case "2":
                 	Instituicao instituicao = InstituicaoForm.incluir();
-                    Arquivo<PessoaJuridica> pessoaJuridicaArquivo = new Arquivo<>(instituicao.getPessoaFisica());
+                    Arquivo<PessoaJuridica> pessoaJuridicaArquivo = new Arquivo<>(instituicao.getPessoaJuridica());
                     Arquivo<Instituicao> instituicaoArquivo = new Arquivo<>(instituicao);
                     try {
                         pessoaJuridicaArquivo.salvar();
